@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (5.2.2)
+  - MJRefresh (3.4.3)
+  - ObjectMapper (3.5.3)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - MJRefresh
+  - ObjectMapper (~> 3.5)
+  - SDWebImage (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - MJRefresh
+    - ObjectMapper
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+
+PODFILE CHECKSUM: f08ffc25acb834f4a3541e16553b2c6bd55a8304
+
+COCOAPODS: 1.9.3
