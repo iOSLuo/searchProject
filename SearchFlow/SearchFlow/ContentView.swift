@@ -10,7 +10,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing: 0.0) {
+            HStack {
+                Text("Search")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .padding(.leading, 20.0)
+                Spacer()
+            }
+            SearchBar()
+                .padding(.horizontal, 10.0)
+            
+            List {
+                /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
+            }
+        }
+    }
+}
+
+struct SearchBar: UIViewRepresentable {
+    typealias UIViewType = UISearchBar
+    
+    func makeUIView(context: Context) -> UISearchBar {
+        let searchBar = UISearchBar.init()
+        searchBar.placeholder = "Tap here to search"
+        searchBar.searchBarStyle = .minimal
+        return searchBar
+    }
+    
+    func updateUIView(_ uiView: UISearchBar, context: Context) {
+        
     }
 }
 

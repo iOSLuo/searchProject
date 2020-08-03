@@ -53,6 +53,7 @@ Pods/
 *.xcuserstate
 project.xcworkspace
 xcuserdata
+xcshareddata
 UserInterfaceState.xcuserstate
 project.xcworkspace/
 xcuserdata/
