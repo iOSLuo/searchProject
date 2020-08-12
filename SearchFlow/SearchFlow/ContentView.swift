@@ -28,7 +28,22 @@ struct ContentView: View {
             List {
                 /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
             }
-        }.background(Color(hex: 0xF9F9F9).edgesIgnoringSafeArea(.all))
+            .onTapGesture {
+                SearchBar(showTop: self.$showTop).showTopView()
+                self.hiddenKeyboard()
+            }
+        }
+        .background(Color(hex: 0xF9F9F9).edgesIgnoringSafeArea(.all))
+    }
+    
+    private func hiddenKeyboard() {
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        keyWindow?.endEditing(true)
     }
 }
 
@@ -46,6 +61,12 @@ struct SearchBar: UIViewRepresentable {
     
     func updateUIView(_ uiView: UISearchBar, context: Context) {
         
+    }
+    
+    func showTopView() {
+        withAnimation(.easeIn(duration: 0.35)) {
+            showTop = true
+        }
     }
     
     class Cordinator: NSObject, UISearchBarDelegate {
