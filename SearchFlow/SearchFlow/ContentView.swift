@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    /// 是否隐藏头部视图
     @State var showTop = true
     
     var body: some View {
@@ -36,6 +37,7 @@ struct ContentView: View {
         .background(Color(hex: 0xF9F9F9).edgesIgnoringSafeArea(.all))
     }
     
+    // MARK: - 隐藏键盘
     private func hiddenKeyboard() {
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
@@ -47,6 +49,7 @@ struct ContentView: View {
     }
 }
 
+// MARK: - 自定义搜索框
 struct SearchBar: UIViewRepresentable {
     @Binding var showTop: Bool
     typealias UIViewType = UISearchBar
@@ -63,6 +66,7 @@ struct SearchBar: UIViewRepresentable {
         
     }
     
+    /// 显示头部视图动画效果
     func showTopView() {
         withAnimation(.easeIn(duration: 0.35)) {
             showTop = true
@@ -75,12 +79,14 @@ struct SearchBar: UIViewRepresentable {
             _showTop = showTop
         }
         
+        // MARK: - UISearchBarDelegate
+        /// 开始编辑隐藏头部视图
         func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
             withAnimation(.easeOut(duration: 0.35)) {
                 showTop = false
             }
         }
-        
+        /// 输入文本获取搜索结果
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             
         }
@@ -97,7 +103,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
+// MARK: - 自定义16进制色值
 extension Color {
     init(hex: Int, alpha: Double = 1) {
         let components = (
